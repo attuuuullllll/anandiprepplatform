@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Anandi Fellowship Official White & Green Theme */
+  --canvas-bg: #F8FAFC;         /* Soft Off-White Clean Canvas */
+  --surface-card: #FFFFFF;      /* Clean White Card */
+  --surface-elevated: #F1F5F9;  /* Light Gray Hover */
+  --surface-border: #E2E8F0;    /* Slate-200 Border */
+  --text-primary: #0F172A;      /* Slate-900 Primary Text */
+  --text-secondary: #475569;    /* Slate-600 Secondary Text */
+  --text-muted: #94A3B8;        /* Slate-400 Muted Text */
+  --brand-accent: #059669;      /* Official Anandi Emerald Green */
+  --brand-accent-hover: #047857;/* Deep Emerald */
+  --brand-accent-light: #ECFDF5;/* Emerald-50 */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Structural Card System */
+.ui-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ui-card-hover:hover {
+  background-color: #FFFFFF;
+  border-color: #A7F3D0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px -2px rgba(5, 150, 105, 0.12);
+}
+
+/* Signature Accent Button (Anandi Emerald) */
+.ui-btn-accent {
+  background-color: var(--brand-accent);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px 0 rgba(5, 150, 105, 0.3);
+  transition: all 0.15s ease-out;
+}
+
+.ui-btn-accent:hover {
+  background-color: var(--brand-accent-hover);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px 0 rgba(5, 150, 105, 0.45);
+  transform: translateY(-0.5px);
+}
+
+.ui-btn-accent:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button (Clean White & Slate) */
+.ui-btn-secondary {
+  background-color: #FFFFFF;
+  color: #1E293B;
+  font-weight: 600;
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease-out;
+}
+
+.ui-btn-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-0.5px);
+}
+
+.ui-btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Discrete Status Badges */
+.ui-tag {
+  background: #F1F5F9;
+  color: var(--text-secondary);
+  border: 1px solid var(--surface-border);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* KaTeX Clean Mathematical Formatting */
+.katex {
+  font-size: 1.05em;
+  text-rendering: auto;
+}
+
+.katex-display {
+  margin: 1.25rem 0 !important;
+  padding: 0.85rem 1.25rem !important;
+  background: #F8FAFC !important;
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 0.875rem !important;
+  overflow-x: auto !important;
+}
+
+/* Minimal Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.3);
+}

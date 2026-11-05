@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anandi-NEAT 2026 • Advanced Examination Cockpit</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Geist & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#272a32",
+            "on-primary-fixed": "#2a1700",
+            "on-secondary-fixed-variant": "#004c69",
+            "on-secondary-container": "#00374d",
+            "secondary-fixed": "#c4e7ff",
+            "on-primary-container": "#613b00",
+            "inverse-primary": "#855300",
+            "secondary": "#7bd0ff",
+            "on-secondary": "#00354a",
+            "surface-container-low": "#191b23",
+            "tertiary-container": "#a7a9ff",
+            "surface-bright": "#363941",
+            "inverse-surface": "#e1e2ec",
+            "on-primary": "#472a00",
+            "primary-container": "#f59e0b",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#653e00",
+            "primary-fixed": "#ffddb8",
+            "tertiary-fixed": "#e1e0ff",
+            "on-surface-variant": "#d8c3ad",
+            "on-tertiary-container": "#2b29bb",
+            "primary": "#ffc174",
+            "on-background": "#e1e2ec",
+            "inverse-on-surface": "#2d3038",
+            "surface": "#10131a",
+            "on-tertiary-fixed": "#07006c",
+            "tertiary-fixed-dim": "#c0c1ff",
+            "surface-variant": "#32353d",
+            "on-tertiary-fixed-variant": "#2f2ebe",
+            "on-error": "#690005",
+            "surface-dim": "#10131a",
+            "on-tertiary": "#1000a9",
+            "on-secondary-fixed": "#001e2c",
+            "surface-container-highest": "#32353d",
+            "error-container": "#93000a",
+            "secondary-container": "#00a6e0",
+            "outline": "#a08e7a",
+            "error": "#ffb4ab",
+            "secondary-fixed-dim": "#7bd0ff",
+            "on-surface": "#e1e2ec",
+            "surface-container": "#1d1f27",
+            "background": "#10131a",
+            "surface-tint": "#ffb95f",
+            "primary-fixed-dim": "#ffb95f",
+            "outline-variant": "#534434",
+            "surface-container-lowest": "#0b0e15",
+            "tertiary": "#c7c8ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-2xl": "3rem",
+            "gutter-desktop": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin": "1rem",
+            "margin-desktop": "2rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Geist", "sans-serif"],
+            "mono-code": ["JetBrains Mono", "monospace"],
+            "body-md": ["Geist", "sans-serif"],
+            "display-lg": ["Geist", "sans-serif"],
+            "label-xs": ["JetBrains Mono", "monospace"],
+            "headline-lg": ["Geist", "sans-serif"],
+            "headline-md": ["Geist", "sans-serif"],
+            "mono-timer": ["JetBrains Mono", "monospace"],
+            "headline-sm": ["Geist", "sans-serif"],
+            "body-sm": ["Geist", "sans-serif"],
+            "display-lg-mobile": ["Geist", "sans-serif"],
+            "mono-timer-mobile": ["JetBrains Mono", "monospace"],
+            "label-md": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "mono-code": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "label-xs": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "mono-timer": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "mono-timer-mobile": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    
+    /* Modern Technical Obsidian Glass Glows */
+    .glass-panel {
+      background: rgba(16, 23, 38, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .amber-glow {
+      box-shadow: 0 0 24px -4px rgba(245, 158, 11, 0.18);
+    }
+    .hud-edge-top {
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    /* Subtle pulse animation for telemetry active dot */
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.92); }
+    }
+    .animate-telemetry-pulse {
+      animation: pulse-amber 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    /* Custom scrollbar for dense examination panels */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0e15;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272a32;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #534434;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col font-body-md select-none overflow-x-hidden antialiased">
+<!-- ========================================================================= -->
+<!-- TOP APP BAR / COCKPIT TELEMETRY (Shared Component: TopNavBar Anchor)     -->
+<!-- ========================================================================= -->
+<header class="flex justify-between items-center w-full px-gutter-desktop h-14 bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline-variant z-50 sticky top-0">
+<!-- Brand Title & Stage Tag -->
+<div class="flex items-center space-x-space-md">
+<div class="flex items-center space-x-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-telemetry-pulse shadow-[0_0_8px_#f59e0b]"></span>
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-on-surface dark:text-on-surface">
+          Anandi-NEAT 2026
+        </span>
+</div>
+<span class="hidden xl:inline-block px-space-sm py-0.5 text-label-xs font-label-xs bg-surface-container border border-outline-variant text-primary rounded">
+        STAGE II ADVANCED • CBT RUNNER
+      </span>
+</div>
+<!-- Navigation Section Tabs (Exact Shared JSON strings) -->
+<nav class="hidden md:flex items-center space-x-space-lg h-full">
+<!-- Active Section: Physics -->
+<button class="border-b-2 border-primary text-primary font-label-md text-label-md pb-1 flex items-center space-x-space-xs h-full px-space-xs transition-colors">
+<span>Physics</span>
+<span class="ml-1 px-1.5 py-0.2 bg-primary/20 text-primary border border-primary/40 rounded text-label-xs font-label-xs">30 Q</span>
+</button>
+<!-- Inactive Section: Chemistry (Physical & Inorganic) -->
+<button class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface flex items-center space-x-space-xs h-full px-space-xs transition-colors">
+<span>Chemistry</span>
+<span class="ml-1 px-1.5 py-0.2 bg-surface-container-high text-on-surface-variant rounded text-label-xs font-label-xs">30 Q</span>
+</button>
+<!-- Inactive Section: Advanced Mathematics -->
+<button class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface flex items-center space-x-space-xs h-full px-space-xs transition-colors">
+<span>Advanced Mathematics</span>
+<span class="ml-1 px-1.5 py-0.2 bg-surface-container-high text-on-surface-variant rounded text-label-xs font-label-xs">35 Q</span>
+</button>
+<!-- Inactive Section: Logical Reasoning -->
+<button class="text-on-surface-variant font-label-md text-label-md hover:text-on-surface flex items-center space-x-space-xs h-full px-space-xs transition-colors">
+<span>Logical Reasoning</span>
+<span class="ml-1 px-1.5 py-0.2 bg-surface-container-high text-on-surface-variant rounded text-label-xs font-label-xs">25 Q</span>
+</button>
+</nav>
+<!-- Trailing Actions & Persistent Countdown Readout -->
+<div class="flex items-center space-x-space-md">
+<!-- Live Countdown HUD Chip -->
+<div class="flex items-center space-x-space-sm bg-surface-container-low border border-outline-variant px-space-md py-1 rounded">
+<span class="material-symbols-outlined text-primary text-[18px]">timer</span>
+<div class="flex flex-col">
+<span class="text-mono-timer-mobile md:text-mono-code font-mono-timer text-primary leading-none tracking-tight">01:48:22</span>
+<span class="text-label-xs font-label-xs text-on-surface-variant leading-none mt-0.5">SYNCHRONIZED</span>
+</div>
+</div>
+<!-- Icon Actions Cluster -->
+<div class="hidden lg:flex items-center space-x-1 border-l border-outline-variant pl-space-md">
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-colors duration-150" title="Pacing Cadence Meter">
+<span class="material-symbols-outlined">speed</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-colors duration-150" title="Candidate Telemetry &amp; Integrity">
+<span class="material-symbols-outlined">badge</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-colors duration-150" title="Display Adjustments &amp; Scale">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Trailing Action Controls -->
+<div class="flex items-center space-x-space-sm">
+<button class="px-space-md py-1.5 text-label-md font-label-md text-on-surface-variant hover:text-on-surface bg-surface-container-low border border-outline-variant hover:bg-surface-container-high rounded transition-colors active:scale-[0.98]">
+          Pause
+        </button>
+<button class="px-space-md py-1.5 text-label-md font-label-md bg-error-container text-error hover:bg-error hover:text-on-error border border-error/30 rounded transition-colors active:scale-[0.98] font-semibold">
+          Submit Exam
+        </button>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE: 3-COLUMN COCKPIT LAYOUT                                    -->
+<!-- ========================================================================= -->
+<div class="flex-1 flex overflow-hidden">
+<!-- LEFT SUB-RAIL: Quick Section Jumpers & Formula Cheatsheet Drawer Toggle -->
+<aside class="hidden xl:flex flex-col justify-between w-14 bg-surface-container-lowest border-r border-outline-variant py-space-md items-center z-20">
+<div class="flex flex-col space-y-space-md items-center">
+<button class="w-9 h-9 rounded bg-primary-container text-on-primary-fixed flex items-center justify-center font-label-md text-label-md font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)]" title="Physics Module (Selected)">
+          PH
+        </button>
+<button class="w-9 h-9 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline flex items-center justify-center font-label-md text-label-md transition-colors" title="Chemistry Module">
+          CH
+        </button>
+<button class="w-9 h-9 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline flex items-center justify-center font-label-md text-label-md transition-colors" title="Advanced Mathematics">
+          MA
+        </button>
+<button class="w-9 h-9 rounded bg-surface-container-low text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline flex items-center justify-center font-label-md text-label-md transition-colors" title="Cognitive &amp; Logical Reasoning">
+          LR
+        </button>
+</div>
+<div class="flex flex-col space-y-space-sm items-center">
+<button class="p-2 text-on-surface-variant hover:text-secondary rounded hover:bg-surface-container-high transition-colors" title="Constant Tables &amp; Notation">
+<span class="material-symbols-outlined">calculate</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary rounded hover:bg-surface-container-high transition-colors" title="Screen Luminosity / Contrast">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary rounded hover:bg-surface-container-high transition-colors" title="System Help Guidelines">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</aside>
+<!-- CENTER CANVAS: QUESTION STAGE & CANDIDATE INTERFACE -->
+<main class="flex-1 overflow-y-auto px-space-md lg:px-gutter-desktop py-space-lg flex justify-center pb-24">
+<div class="w-full max-w-[880px] space-y-space-lg">
+<!-- Question Meta-Header Bar -->
+<div class="glass-panel p-space-md rounded-xl flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center space-x-space-md">
+<span class="px-space-md py-1 bg-surface-container-high border border-outline-variant text-primary font-mono-code text-mono-code rounded">
+              Question 14 of 30
+            </span>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">
+                Quantum Electrodynamics &amp; Wave Optics
+              </span>
+<span class="text-label-xs font-label-xs text-on-surface-variant">
+                Section: Physics • Advanced Stage II Track
+              </span>
+</div>
+</div>
+<div class="flex items-center space-x-space-sm">
+<!-- Difficulty & Marking Scheme Telemetry -->
+<span class="px-2 py-0.5 text-label-xs font-label-xs bg-error-container/30 text-error border border-error/30 rounded font-mono-code">
+              Hard • Tier 1
+            </span>
+<span class="px-2 py-0.5 text-label-xs font-label-xs bg-surface-container-high text-secondary border border-secondary/30 rounded font-mono-code">
+              +4.0 / -1.0
+            </span>
+<!-- Context Actions -->
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded hover:bg-surface-container-high transition-colors" title="Bookmark for Review">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high transition-colors" title="Report Errata">
+<span class="material-symbols-outlined">flag</span>
+</button>
+</div>
+</div>
+<!-- Question Pace Tracker HUD Widget -->
+<div class="bg-surface-container-low border border-outline-variant/60 rounded-lg p-space-sm px-space-md flex items-center justify-between">
+<div class="flex items-center space-x-space-sm text-label-xs font-label-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">speed</span>
+<span>Target Pace: <strong class="text-on-surface">90s</strong></span>
+<span class="text-outline-variant">•</span>
+<span>Current Elapsed: <strong class="text-primary font-mono-code">48s</strong></span>
+<span class="text-outline-variant">•</span>
+<span class="text-emerald-400">Pacing Velocity: Optimal (+42s Buffer)</span>
+</div>
+<!-- Miniature pace meter bar -->
+<div class="w-48 bg-surface-container-high h-2 rounded-full overflow-hidden flex">
+<div class="bg-secondary-container h-full transition-all duration-300" style="width: 53%;"></div>
+<div class="bg-primary-container/40 h-full" style="width: 47%;"></div>
+</div>
+</div>
+<!-- Primary Question Card (Mathematical Typesetting) -->
+<section class="glass-panel p-space-xl rounded-xl space-y-space-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 pointer-events-none opacity-5">
+<span class="material-symbols-outlined text-[140px] text-primary">functions</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="space-y-space-md">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed font-normal">
+                A relativistic beam of electrons with de Broglie wavelength <span class="font-mono-code text-secondary font-medium">λ = 0.045 nm</span> enters a uniform transverse magnetic field <span class="font-mono-code text-secondary font-medium">B = 1.25 T</span>.
+              </p>
+<div class="my-space-md p-space-md bg-surface-container-lowest/80 border border-outline-variant/80 rounded-lg text-center font-mono-code">
+<span class="text-on-surface-variant">Potential Model: </span>
+<span class="text-primary text-headline-sm font-headline-sm font-semibold tracking-wide ml-2">
+                  V(x) = V₀ sech²(α x)
+                </span>
+<div class="text-label-xs font-label-xs text-on-surface-variant mt-1">
+                  where V₀ = 14.8 eV, α = 2.1 × 10¹⁰ m⁻¹, and ħ = 1.054 × 10⁻³⁴ J·s
+                </div>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                Assuming steady asymptotic matching across the barrier, calculate the quantum transmission coefficient <span class="font-mono-code text-primary font-semibold">T</span> and the induced barrier phase shift <span class="font-mono-code text-primary font-semibold">δ(k)</span> under relativistic kinematic adjustments.
+              </p>
+</div>
+</div>
+<!-- Formula & Reference Quick Action Bar -->
+<div class="pt-space-xs flex items-center space-x-space-md border-t border-outline-variant/40 text-label-xs font-label-xs text-on-surface-variant">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">functions</span>
+<span>Open Pöschl-Teller Formula Card</span>
+</button>
+<span>•</span>
+<button class="flex items-center space-x-1 hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[16px]">auto_stories</span>
+<span>Constants Reference Sheet</span>
+</button>
+<span>•</span>
+<span class="font-mono-code text-on-surface-variant">UID: PHY-ADV-8941-Q14</span>
+</div>
+</section>
+<!-- Multiple Choice Selection Nodes (MCQ Grid) -->
+<div aria-label="Question Options" class="space-y-space-sm" role="radiogroup">
+<!-- Option A -->
+<div class="group relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-low border border-outline-variant/50 hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center space-x-space-md">
+<div class="w-8 h-8 rounded flex items-center justify-center font-mono-code text-label-md font-bold bg-surface-container-high text-on-surface-variant group-hover:text-primary group-hover:border-primary/40 border border-outline-variant transition-colors">
+                [A]
+              </div>
+<div class="font-mono-code text-body-md text-on-surface">
+                T = 0.842 ± 0.003,    δ(k) = 1.47 rad
+              </div>
+</div>
+<span class="text-label-xs font-label-xs text-outline-variant group-hover:text-on-surface-variant">Press 1 or A</span>
+</div>
+<!-- Option B (Selected State - Defined in Style Guidance Layer 2) -->
+<div class="group relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-high border-l-4 border-l-primary-container border-t border-r border-b border-primary/40 amber-glow transition-all cursor-pointer">
+<div class="flex items-center space-x-space-md">
+<div class="w-8 h-8 rounded flex items-center justify-center font-mono-code text-label-md font-bold bg-primary text-on-primary-fixed shadow-[0_0_10px_rgba(245,158,11,0.4)]">
+                [B]
+              </div>
+<div class="font-mono-code text-body-md text-primary font-semibold">
+                T = 0.916 ± 0.002,    δ(k) = 2.05 rad
+              </div>
+</div>
+<div class="flex items-center space-x-space-sm">
+<span class="px-2 py-0.5 rounded text-label-xs font-label-xs bg-primary/20 text-primary border border-primary/40">SELECTED</span>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Option C -->
+<div class="group relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-low border border-outline-variant/50 hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center space-x-space-md">
+<div class="w-8 h-8 rounded flex items-center justify-center font-mono-code text-label-md font-bold bg-surface-container-high text-on-surface-variant group-hover:text-primary group-hover:border-primary/40 border border-outline-variant transition-colors">
+                [C]
+              </div>
+<div class="font-mono-code text-body-md text-on-surface">
+                T = 0.729 ± 0.005,    δ(k) = 0.89 rad
+              </div>
+</div>
+<span class="text-label-xs font-label-xs text-outline-variant group-hover:text-on-surface-variant">Press 3 or C</span>
+</div>
+<!-- Option D -->
+<div class="group relative flex items-center justify-between p-space-md rounded-xl bg-surface-container-low border border-outline-variant/50 hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center space-x-space-md">
+<div class="w-8 h-8 rounded flex items-center justify-center font-mono-code text-label-md font-bold bg-surface-container-high text-on-surface-variant group-hover:text-primary group-hover:border-primary/40 border border-outline-variant transition-colors">
+                [D]
+              </div>
+<div class="font-mono-code text-body-md text-on-surface">
+                T = 0.985 ± 0.001,    δ(k) = 3.12 rad
+              </div>
+</div>
+<span class="text-label-xs font-label-xs text-outline-variant group-hover:text-on-surface-variant">Press 4 or D</span>
+</div>
+</div>
+<!-- TITA (Type In The Answer) Precision Verification Card -->
+<div class="glass-panel p-space-md rounded-xl space-y-space-sm border border-outline-variant/60">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">keyboard</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Alternate Decimal Verification / TITA</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant">Tolerance: ±0.005</span>
+</div>
+<div class="flex items-center space-x-space-md">
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-primary font-mono-code text-headline-sm rounded px-space-md py-2 focus:border-secondary focus:ring-0 outline-none" placeholder="Enter rounded decimal value..." type="text" value="0.916"/>
+<span class="absolute right-3 top-2.5 text-label-xs font-label-xs text-on-surface-variant">transmission factor</span>
+</div>
+<button class="px-space-md py-2 bg-surface-container-high text-on-surface hover:text-primary border border-outline-variant hover:border-outline rounded text-label-md font-label-md flex items-center space-x-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">dialpad</span>
+<span>Virtual Keypad</span>
+</button>
+</div>
+</div>
+<!-- Self-Audit Cognitive Mistake Tagger Pills -->
+<div class="p-space-md bg-surface-container-lowest border border-outline-variant/50 rounded-xl space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-on-surface-variant font-semibold tracking-wider uppercase">
+              Mock Meta-Diagnostic • Self Friction Tagging:
+            </span>
+<span class="text-label-xs font-label-xs text-outline">Post-test Anandi AI Telemetry</span>
+</div>
+<div class="flex flex-wrap gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant hover:text-primary border border-outline-variant rounded text-label-xs font-label-xs transition-colors">
+              Concept Gap
+            </button>
+<button class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant hover:text-primary border border-outline-variant rounded text-label-xs font-label-xs transition-colors">
+              Calculation Error
+            </button>
+<button class="px-space-sm py-1 bg-primary/10 text-primary border border-primary/40 rounded text-label-xs font-label-xs font-semibold">
+              ✓ Careless Trap Checked
+            </button>
+<button class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant hover:text-primary border border-outline-variant rounded text-label-xs font-label-xs transition-colors">
+              Time Pressure
+            </button>
+<button class="px-space-sm py-1 bg-surface-container-high text-on-surface-variant hover:text-primary border border-outline-variant rounded text-label-xs font-label-xs transition-colors">
+              Intuition Guess
+            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- RIGHT WORKSPACE HUD (Shared Component: SideNavBar Anchor)                  -->
+<!-- ========================================================================= -->
+<aside class="hidden lg:flex flex-col justify-between h-[calc(100vh-3.5rem)] w-72 p-space-md bg-surface-container-low dark:bg-surface-container-low border-l border-outline-variant dark:border-outline-variant z-40 fixed right-0 top-14">
+<!-- Top HUD Header: Session & Status -->
+<div class="space-y-space-md">
+<div class="border-b border-outline-variant/60 pb-space-sm flex items-center justify-between">
+<div class="flex items-center space-x-space-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="text-label-md font-label-md font-semibold text-on-surface">Session #AF-2026-8941</div>
+<div class="text-label-xs font-label-xs text-on-surface-variant">Right Workspace HUD</div>
+</div>
+</div>
+<span class="text-label-xs font-label-xs text-primary font-mono-code">ONLINE</span>
+</div>
+<!-- 4-Tabs Navigation Clusters from SideNavBar Component -->
+<div class="space-y-1">
+<!-- Active Tab: Question Matrix -->
+<button class="w-full text-left text-primary bg-surface-container-high dark:bg-surface-container-high border-l-2 border-primary pl-3 py-2 flex items-center space-x-space-sm rounded-r text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span>Question Matrix</span>
+</button>
+<!-- Tab 2: Leo AI Mentor -->
+<button class="w-full text-left text-on-surface-variant dark:text-on-surface-variant pl-3 py-2 hover:text-on-surface hover:bg-surface-container flex items-center justify-between rounded text-label-md font-label-md transition-colors">
+<div class="flex items-center space-x-space-sm">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>Leo AI Mentor</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</button>
+<!-- Tab 3: Formula Deck -->
+<button class="w-full text-left text-on-surface-variant dark:text-on-surface-variant pl-3 py-2 hover:text-on-surface hover:bg-surface-container flex items-center space-x-space-sm rounded text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">functions</span>
+<span>Formula Deck</span>
+</button>
+<!-- Tab 4: Scratchpad -->
+<button class="w-full text-left text-on-surface-variant dark:text-on-surface-variant pl-3 py-2 hover:text-on-surface hover:bg-surface-container flex items-center space-x-space-sm rounded text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span>Scratchpad</span>
+</button>
+</div>
+<!-- Matrix Status Legend -->
+<div class="p-space-sm bg-surface-container-lowest rounded border border-outline-variant/60 space-y-1.5">
+<div class="text-label-xs font-label-xs text-on-surface-variant uppercase tracking-wider font-semibold">Candidate Status Palette</div>
+<div class="grid grid-cols-2 gap-1 text-label-xs font-label-xs">
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-emerald-500/30 border border-emerald-500"></span>
+<span class="text-on-surface-variant">18 Answered</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary/30 border border-primary"></span>
+<span class="text-on-surface-variant">4 Marked</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-surface-container-high border border-outline-variant"></span>
+<span class="text-on-surface-variant">7 Unvisited</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary border-2 border-primary"></span>
+<span class="text-primary font-semibold">1 Current</span>
+</div>
+</div>
+</div>
+<!-- 30-Question Grid Node Canvas (Compact Numeric Cells) -->
+<div class="space-y-1">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant">
+<span>Physics Section Node Jump</span>
+<span class="font-mono-code">Q 1 - 30</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5 max-h-48 overflow-y-auto pr-1">
+<!-- 1 to 5 (Answered) -->
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">01</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">02</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">03</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-primary/20 border border-primary text-primary">04</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">05</button>
+<!-- 6 to 10 -->
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">06</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">07</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-primary/20 border border-primary text-primary">08</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">09</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">10</button>
+<!-- 11 to 15 (14 is Active Target with Pulsing Amber Halo) -->
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">11</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">12</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">13</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-bold bg-primary text-on-primary-fixed ring-2 ring-primary ring-offset-2 ring-offset-surface shadow-[0_0_12px_#f59e0b]">14</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-primary/20 border border-primary text-primary">15</button>
+<!-- 16 to 20 -->
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">16</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">17</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">18</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">19</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">20</button>
+<!-- 21 to 25 -->
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">21</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-emerald-900/30 border border-emerald-500 text-emerald-400">22</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">23</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">24</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">25</button>
+<!-- 26 to 30 -->
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">26</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-semibold bg-primary/20 border border-primary text-primary">27</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">28</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">29</button>
+<button class="h-7 rounded font-mono-code text-label-xs font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant">30</button>
+</div>
+</div>
+<!-- Leo AI Mentor Socratic Hint Preview Container -->
+<div class="glass-panel p-space-sm rounded-lg border border-secondary/30 space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">psychology</span>
+<span class="text-label-xs font-label-xs text-secondary font-semibold">Leo AI Socratic Hint</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-mono-code">2/3 Available</span>
+</div>
+<p class="text-label-xs font-label-xs text-on-surface-variant line-clamp-3 leading-relaxed">
+            "💡 Pöschl-Teller potential relation: Check if parameter s yields integer resonances for V₀ sech²(αx) before wavevector integration."
+          </p>
+<button class="w-full py-1 text-center bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 rounded text-label-xs font-label-xs font-semibold transition-colors">
+            Ask Leo AI Hint
+          </button>
+</div>
+</div>
+<!-- SideNavBar Footer Tab Controls (Verbatim JSON) -->
+<div class="border-t border-outline-variant pt-space-sm space-y-1">
+<button class="w-full flex items-center space-x-space-sm text-on-surface-variant hover:text-on-surface text-label-md font-label-md py-1.5 px-space-sm rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span>Exam Guidelines</span>
+</button>
+<button class="w-full flex items-center space-x-space-sm text-error/80 hover:text-error text-label-md font-label-md py-1.5 px-space-sm rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span>Report Issue</span>
+</button>
+</div>
+</aside>
+</div>
+<!-- ========================================================================= -->
+<!-- BOTTOM DOCKED UTILITY COCKPIT (Shared Component: BottomNavBar Anchor)     -->
+<!-- ========================================================================= -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-gutter-desktop h-16 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline-variant">
+<!-- Left Navigation Actions (Matches JSON labels) -->
+<div class="flex items-center space-x-space-sm">
+<button class="flex items-center justify-center text-on-surface-variant font-label-md text-label-md px-space-md py-space-sm border border-outline-variant rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] mr-1.5">backspace</span>
+<span>Clear Response</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant font-label-md text-label-md px-space-md py-space-sm border border-outline-variant rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] mr-1.5">arrow_back</span>
+<span>Previous</span>
+</button>
+</div>
+<!-- Center Contextual Telemetry & Mentor Quick Trigger -->
+<div class="hidden md:flex items-center space-x-space-md">
+<button class="flex items-center space-x-1.5 px-space-md py-1.5 bg-surface-container-high hover:bg-surface-container-highest border border-secondary/40 text-secondary rounded-lg text-label-md font-label-md transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Leo AI Hint</span>
+</button>
+<div class="flex items-center space-x-2 text-label-xs font-label-xs text-on-surface-variant font-mono-code px-space-sm py-1 bg-surface-container-low rounded border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Target: 90s/Q • Current: 48s • Steady State</span>
+</div>
+</div>
+<!-- Right Primary Execution Actions (Matches JSON labels & style_active_navigation) -->
+<div class="flex items-center space-x-space-sm">
+<button class="flex items-center justify-center text-on-surface-variant font-label-md text-label-md px-space-md py-space-sm border border-primary/40 text-primary hover:bg-primary/10 rounded-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] mr-1.5">bookmark</span>
+<span>Mark for Review</span>
+</button>
+<!-- Active Primary Forward Action -->
+<button class="flex items-center justify-center bg-primary text-on-primary font-headline-sm text-headline-sm px-space-lg py-space-sm rounded-lg shadow-sm hover:brightness-105 active:scale-[0.98] transition-all font-semibold">
+<span class="mr-1.5">Save &amp; Next</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>
